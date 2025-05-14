@@ -18,7 +18,6 @@
 *.txt
 *.rpa
 *.sh
-*.py
 *.js
 *.lock
 __pycache__/
