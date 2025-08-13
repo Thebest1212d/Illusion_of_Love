@@ -7,6 +7,7 @@
 define h = Character("[heroname]", color="#00ff4c")
 define s = Character("Соломія")
 define u = Character("Учитель")
+define re = Character("Реєстратор шлюбу", color="#f21cd5")
 
 #Музика та звуки
 define audio.song1 = "audio/Evening.mp3"
@@ -35,7 +36,7 @@ define audio.sad_music = "audio/Sad Trio1.mp3"
 define audio.pobeda = "audio/pobeda.mp3"
 define audio.achievement = "audio/achievement.mp3"
 define audio.wedding = "audio/Wedding.mp3"
-
+define audio.ring = "audio/ring.mp3"
 
 
 #---------------------------------------------------------------------------------------------------------------
@@ -166,7 +167,7 @@ init python:
 #---------------------------------------------------------------------------------------------------------------
 
 #Вимкнення прокрутки колесика мишки
-$ config.rollback_enabled = False
+#$ config.rollback_enabled = False
 
 #---------------------------------------------------------------------------------------------------------------
 
