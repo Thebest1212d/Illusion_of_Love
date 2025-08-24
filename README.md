@@ -59,13 +59,9 @@
 
 > *"A story about love, choices, and the fragile line between reality and illusion."*  
 
----
-
 ## 📖 Description
 **Illusion of Love** is a visual novel built with **Ren'Py** that tells an emotional and touching story about love, friendship, and self-discovery.  
 The player shapes the story through meaningful choices that determine the outcome and ending of the game.  
-
----
 
 ## ✨ Features
 - 🎭 Branching narrative with multiple endings  
@@ -73,8 +69,6 @@ The player shapes the story through meaningful choices that determine the outcom
 - 🎶 Atmospheric soundtrack  
 - 💬 Thoughtful dialogues and emotional scenes  
 - 🌸 Romance, drama, and heartwarming moments  
-
----
 
 ## 🛠 Installation
 1. Download the latest release from [Releases](https://github.com/your-username/illusion-of-love/releases)  
@@ -84,8 +78,6 @@ The player shapes the story through meaningful choices that determine the outcom
    - **Linux:** `IllusionOfLove.sh`  
    - **MacOS:** `IllusionOfLove.app`  
 
----
-
 ## 🎮 Controls
 - **Left Click** / **Enter** — next line  
 - **Right Click** — menu  
@@ -93,14 +85,10 @@ The player shapes the story through meaningful choices that determine the outcom
 - **Ctrl** — skip  
 - **S** — screenshot  
 
----
-
 ## 📚 Story (short)
 *Here you can insert your short plot summary.*  
 Example:  
 > The main character has just graduated from school and is standing at the edge of adulthood. Choices await — ones that will shape his life forever: friendship, love, dreams, and painful decisions that may lead to happiness… or heartbreak.  
-
----
 
 ## 🌟 Roadmap
 - [ ] Add more CG scenes  
@@ -108,20 +96,14 @@ Example:
 - [ ] Localize into additional languages  
 - [ ] Full original soundtrack  
 
----
-
 ## 🤝 Contributors
 - **Author & Writer:** Bohdan Brytiuk  
 - **Programming:** *Your name / nickname*  
 - **Art & Illustrations:** *to be added*  
 - **Music:** *to be added*  
 
----
-
 ## 📜 License
 This project is distributed under the **MIT License** (or another license you choose).  
-
----
 
 ## 💌 Acknowledgments
 Special thanks to everyone who supports the creation of this novel and inspires its development!
