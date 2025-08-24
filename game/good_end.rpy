@@ -1,5 +1,5 @@
-# --- Початок сцени з подарунком та какао ---
 label dare:
+    # --- Прогулянка містом ---
     scene bg out3day with dissolve
     show solomia blink with dissolve
     s "Пішли в ось той, ліворуч"
@@ -28,6 +28,7 @@ label dare:
     s "Ну то що, ходімо вже додому?"
     h "Так, а то ми вже засиділись"
     hide solomia smiled with dissolve
+    # --- Вечір після прогулянки ---
     scene bg house2night with dissolve
     show solomia blink with dissolve
     s "Вже пізнувато щось"
@@ -48,6 +49,7 @@ label dare:
     "А якщо вона відмовить"
     "А якщо погодиться"
     "Ви загорнулися в подушку. Так і заснули"
+    # --- Сон з поцілунком (фантазія героя) ---
     scene dark with fade
     show solomia shy with dissolve
     s "[h]...{w}[h]...{w}[h]..."
@@ -64,6 +66,7 @@ label dare:
     s "Мій милий, [h]"
     scene dark with dissolve
     ""
+    # --- Ранок, герой готується до зізнання ---
     play sound budilnik
     centered"Чому я не здивований..."
     scene room_heroday with dissolve    
@@ -163,6 +166,7 @@ label dare:
             jump dare2
 
     label dare2:
+    # --- Герой нарешті зізнається у коханні ---
     "Чому слова застрягають в горлі та не досягають її?"
     "Я не можу вимовити ні звуку, серце ось-ось вистрибне з грудей"
     "Заплющ очі"
@@ -229,6 +233,7 @@ label dare:
 
     "Ви просто сиділи, тримаючись за руки, спостерігаючи, як ніч повільно огортає парк"
     "Так просидівши, деякий час, ви пішли до її будинку"
+    # --- Вечір біля дому Соломії ---
     scene bg house2night with dissolve
     show solomia blink with dissolve
     s "Ну ось ми і дійшли"
@@ -271,6 +276,7 @@ label dare:
     scene dark with dissolve
     "Тепер у мене є відповідальність"
     "Я не хочу її втрачати"
+    # --- Ранок після зізнання ---
     scene room_heroday with dissolve
     play sound budilnik
     "Це все схоже було на сон"
@@ -296,7 +302,7 @@ label dare:
     h "Звичайно, пішли швидше, урок вже почався"
     s "Побігли!"
     hide solomia smiled with dissolve
-    "Як же ж чудово, що вона в мене є"
+    # --- Сцена після школи, підготовка до побачення ---
     scene bg class with dissolve
     u "Соломіє, [heroname], запізнюєтеся"
     h "Вибачте"
@@ -338,7 +344,7 @@ label dare:
     hide solomia2 smiled with dissolve
     scene bg out3day with dissolve
 
-    # --- Сцена в парку ---
+    # --- Сцена в парку, романтична прогулянка ---
     show solomia2 smiled with dissolve
     "Ми йдемо повільно, не поспішаючи, поруч один з одним. Повітря наповнене ароматом квітів і теплою весняною свіжістю"
     "Соломія підходить ближче, і наші руки майже торкаються"
