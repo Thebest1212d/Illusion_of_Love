@@ -6,7 +6,7 @@
 
 define h = Character("[heroname]", color="#00ff4c")
 define s = Character("Соломія")
-define u = Character("Учитель")
+define u = Character("Учитель", color="#eb9b11")
 define re = Character("Реєстратор шлюбу", color="#f21cd5")
 
 #Музика та звуки
@@ -77,7 +77,7 @@ screen dark_overlay:
 
 #---------------------------------------------------------------------------------------------------------------
 
-#Моргання Соломії1
+#Моргання Соломії 1
 image solomia blink:
     "solomia normal"
     choice:
@@ -90,7 +90,7 @@ image solomia blink:
     pause 0.25
     repeat
 
-#Моргання Соломії1
+#Моргання Соломії 2
 image solomia2 blink:
     "solomia2 normal"
     choice:
