@@ -1,5 +1,9 @@
 # Гра починається тут
 label start:
+    show screen intro_message
+    "Клікни..."  # маленька пауза, щоб Ren'Py продовжив
+    jump start2
+label start2:
     default score = 0
 
     #Програвання музики в грі
