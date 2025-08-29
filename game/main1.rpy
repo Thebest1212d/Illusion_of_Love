@@ -1,7 +1,7 @@
 # Гра починається тут
 label start:
     show screen intro_message
-    "Клікни..."  # маленька пауза, щоб Ren'Py продовжив
+    "Занурся у почуття..."  # маленька пауза, щоб Ren'Py продовжив
     jump start2
 label start2:
     default score = 0
@@ -10,7 +10,6 @@ label start2:
     #Плавне затухання музики - stop music fadeout 1.0
 
     $ play_random_playlist()
-
 
     scene black with dissolve
     centered"Кожен крок, кожен погляд, кожне слово — це вибір. Одні з них зникають, наче слід на воді. Інші залишаються назавжди"
