@@ -19,9 +19,9 @@
 1. Скачайте останній реліз з [Releases](https://github.com/Thebest1212d/Illusion_of_Love/releases)
 2. Розпакуйте архів у зручне місце  
 3. Запустіть файл:  
-   - **Windows:** `IllusionOfLove.exe`  
-   - **Linux:** `IllusionOfLove.sh`  
-   - **MacOS:** `IllusionOfLove.app`  
+   - **Windows:** `IOL.exe`  
+   - **Linux:** `IOL.sh`  
+   - **MacOS:** `IOL.app`  
 
 ## 🎮 Управління
 - **ЛКМ** / **Enter** — наступна репліка  
@@ -101,9 +101,9 @@ Players influence the events through choices that shape the plot and the story�
 1. Download the latest release from [Releases](https://github.com/Thebest1212d/Illusion_of_Love/releases)  
 2. Extract the archive to a convenient location  
 3. Run the file:  
-   - **Windows:** `IllusionOfLove.exe`  
-   - **Linux:** `IllusionOfLove.sh`  
-   - **MacOS:** `IllusionOfLove.app`  
+   - **Windows:** `IOL.exe`  
+   - **Linux:** `IOL.sh`  
+   - **MacOS:** `IOL.app`  
 
 ## 🎮 Controls
 - **LMB** / **Enter** — next line  
