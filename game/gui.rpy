@@ -155,17 +155,17 @@ define gui.button_width = None
 define gui.button_height = None
 
 ## Межі з кожного боку кнопки в порядку зліва, зверху, справа та знизу.
-define gui.button_borders = Borders(6, 6, 6, 6)
+define gui.button_borders = Borders(6, 0, 6, 0)
 
 ## Якщо True, фонове зображення буде мозаїчно. Якщо False, фонове зображення
 ## буде лінійно масштабовано.
 define gui.button_tile = False
 
 ## Шрифт, який використовується кнопкою.
-define gui.button_text_font = gui.interface_text_font
+define gui.button_text_font = "fonts/Pacifico/Pacifico-Regular.ttf"
 
 ## Розмір тексту, який використовується кнопкою.
-define gui.button_text_size = gui.interface_text_size
+define gui.button_text_size = 42
 
 ## Колір тексту кнопки в різних станах.
 define gui.button_text_idle_color = gui.idle_color
@@ -187,6 +187,9 @@ define gui.button_text_xalign = 0.0
 define gui.radio_button_borders = Borders(27, 6, 6, 6)
 
 define gui.check_button_borders = Borders(27, 6, 6, 6)
+
+#Змінено розмір кнопки check_button у меню налаштувань
+define gui.check_button_width = 500
 
 define gui.confirm_button_text_xalign = 0.5
 
