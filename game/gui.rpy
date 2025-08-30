@@ -62,12 +62,13 @@ define gui.interface_text_color = '#ffffff'
 
 ## Шрифт, який використовується для тексту в грі.
 define gui.text_font = "DejaVuSans.ttf"
+#define gui.text_font = "fonts/Lora/static/Lora-SemiBold.ttf"
 
 ## Шрифт, який використовується для імен символів.
 define gui.name_text_font = "fonts/Great_Vibes/GreatVibes-Regular.ttf"
 
 ## Шрифт, який використовується для тексту поза грою.
-define gui.interface_text_font = "DejaVuSans.ttf"
+define gui.interface_text_font = "fonts/Bad_Script/BadScript-Regular.ttf"
 
 ## Розмір звичайного тексту діалогу.
 define gui.text_size = 33
@@ -134,7 +135,7 @@ define gui.namebox_tile = False
 ## Розташування діалогу відносно текстового поля. Це може бути ціла кількість
 ## пікселів відносно лівого чи верхнього краю текстового поля або 0,5 до центру.
 define gui.dialogue_xpos = 402
-define gui.dialogue_ypos = 90
+define gui.dialogue_ypos = 80
 
 ## Максимальна ширина тексту діалогу в пікселях.
 define gui.dialogue_width = 1116
@@ -485,3 +486,4 @@ init python:
 
         gui.nvl_button_width = 1860
         gui.nvl_button_xpos = 30
+

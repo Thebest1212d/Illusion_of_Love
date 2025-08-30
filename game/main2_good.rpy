@@ -183,6 +183,7 @@ label seconddayg:
     h "Чудово. А тобі як?"
     s "Мені теж добре, пішли до класу, скоро урок почнеться"
     hide solomia blink with dissolve
+    "Треба поспішати"
     scene bg class with dissolve
     show solomia shy with dissolve
     s "Ну...Я приготувала обід, як і обіцяла"
