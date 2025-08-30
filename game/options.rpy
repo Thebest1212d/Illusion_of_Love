@@ -208,7 +208,7 @@ define config.save_directory = "Illusionoflove-1692966520"
 ##
 ## Значок, що відображається на панелі завдань або док-станції.
 
-define config.window_icon = "gui/window_icon.jpg"
+define config.window_icon = "gui/window_icon_test2.png"
 
 
 ## Створити конфігурацію #######################################################
