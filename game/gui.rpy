@@ -64,7 +64,7 @@ define gui.interface_text_color = '#ffffff'
 define gui.text_font = "DejaVuSans.ttf"
 
 ## Шрифт, який використовується для імен символів.
-define gui.name_text_font = "DejaVuSans.ttf"
+define gui.name_text_font = "fonts/Great_Vibes/GreatVibes-Regular.ttf"
 
 ## Шрифт, який використовується для тексту поза грою.
 define gui.interface_text_font = "DejaVuSans.ttf"
@@ -73,7 +73,7 @@ define gui.interface_text_font = "DejaVuSans.ttf"
 define gui.text_size = 33
 
 ## Розмір імен персонажів.
-define gui.name_text_size = 45
+define gui.name_text_size = 60
 
 ## Розмір тексту в інтерфейсі користувача гри.
 define gui.interface_text_size = 33
@@ -124,7 +124,7 @@ define gui.namebox_width = None
 define gui.namebox_height = None
 
 ## Межі поля, що містять ім'я персонажа, у порядку зліва, зверху, справа, знизу.
-define gui.namebox_borders = Borders(5, 5, 5, 5)
+define gui.namebox_borders = Borders(5, 10, 5, 10)
 
 ## Якщо True, фон поля імен буде мозаїкою, якщо False, фон вікна імен буде
 ## масштабовано.
@@ -134,7 +134,7 @@ define gui.namebox_tile = False
 ## Розташування діалогу відносно текстового поля. Це може бути ціла кількість
 ## пікселів відносно лівого чи верхнього краю текстового поля або 0,5 до центру.
 define gui.dialogue_xpos = 402
-define gui.dialogue_ypos = 75
+define gui.dialogue_ypos = 90
 
 ## Максимальна ширина тексту діалогу в пікселях.
 define gui.dialogue_width = 1116

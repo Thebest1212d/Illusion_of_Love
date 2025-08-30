@@ -174,7 +174,7 @@ screen intro_message():
         style "menu_frame"
         xalign 0.5
         yalign 0.5
-        xmaximum 800
+        xmaximum 1000
         ymaximum 300
         xpadding 30
         ypadding 30
