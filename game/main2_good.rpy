@@ -130,7 +130,7 @@ label walk:
     play sound krok1
     show solomia blink at zoomin with dissolve # Анімація переміщення та збільшення
 
-    s "Добраніч.{w} Постарайся сьогодні виспатися.{w} Солодких тобі, {b}гарячих{/b} снів"
+    s "Добраніч.{w} Постарайся сьогодні виспатися.{w} Солодких тобі, {b}гарячих{/b} снів ❤️"
     play sound heart
     "Серце зараз з грудей вискочить"
     show solomia smiled at normal with dissolve

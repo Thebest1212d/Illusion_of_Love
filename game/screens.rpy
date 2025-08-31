@@ -1606,3 +1606,79 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+
+init python:
+    import random
+    import math
+
+    petal_images = [
+        "images/Main menu/petal1.png",
+        "images/Main menu/petal2.png",
+        "images/Main menu/petal3.png",
+        "images/Main menu/petal4.png",
+        "images/Main menu/petal5.png",
+        "images/Main menu/petal6.png",
+        "images/Main menu/petal7.png"   
+    ]
+
+    petals = []
+    for i in range(200):
+        side = random.choice(["top", "left", "right"])
+
+        if side == "top":
+            x = random.randint(-100, 2020)
+            y_start = random.randint(-150, -50)
+            y_end = 1080 + 100
+            x_end = x + random.randint(-50, 50)
+        elif side == "left":
+            x = -100
+            y_start = random.randint(0, 1080)
+            y_end = y_start + random.randint(100, 500)
+            x_end = 1920 + 100
+        else:
+            x = 1920 + 100
+            y_start = random.randint(0, 1080)
+            y_end = y_start + random.randint(100, 500)
+            x_end = -100
+
+        petals.append({
+            "image": random.choice(petal_images),
+            "x_start": x,
+            "x_end": x_end,
+            "y_start": y_start,
+            "y_end": y_end,
+            "speed": random.uniform(6.0, 18.0),
+            "xscale": random.uniform(0.2, 0.6),
+            "yscale": random.uniform(0.2, 0.6),
+            "rotation": random.uniform(-30, 30),
+            "rotate_speed": random.uniform(-2.0, 2.0),
+            "amplitude": random.uniform(20, 60),  # амплітуда коливань
+            "frequency": random.uniform(0.01, 0.03),  # швидкість коливань
+        })
+
+transform fall_petal(petal):
+    xpos petal["x_start"]
+    ypos petal["y_start"]
+    xzoom petal["xscale"]
+    yzoom petal["yscale"]
+    rotate petal["rotation"]
+    
+    linear petal["speed"] ypos petal["y_end"] rotate petal["rotation"] + 360
+    repeat
+
+screen main_menu():
+    add "game_menu.jpg"
+
+    for petal in petals:
+        add petal["image"] at fall_petal(petal)
+
+    vbox:
+        spacing 20
+        xalign 0.5
+        yalign 0.6
+
+        textbutton "New Game" action Start()
+        textbutton "Load Game" action ShowMenu("load")
+        textbutton "Preferences" action ShowMenu("preferences")
+        textbutton "Quit" action Quit()
+
