@@ -1620,26 +1620,24 @@ init python:
         "images/Main menu/petal7.png"
     ]
 
+    # Створюємо список пелюсток із випадковими параметрами
     petals = []
-    for i in range(50):
-        x = random.randint(0, 1920)
-        y_start = random.randint(-200, -50)
-        y_end = 1080 + 50
+    for i in range(200):
         petals.append({
             "image": random.choice(petal_images),
-            "x": x,
-            "y_start": y_start,
-            "y_end": y_end,
-            "speed": random.uniform(6.0, 12.0),  # час падіння
-            "x_offset": random.randint(50, 120),  # амплітуда коливань
+            "x": random.randint(0, 1920),
+            "y_start": random.randint(-200, -50),
+            "y_end": 1080 + 50,
+            "speed": random.uniform(6.0, 12.0),
+            "x_offset": random.randint(50, 120),
             "rotate": random.randint(-30, 30),
             "rotate_speed": random.randint(-60, 60),
             "xscale": random.uniform(0.3, 0.6),
             "yscale": random.uniform(0.3, 0.6),
-            "fade_start": random.uniform(0.7, 0.9)  # відносно висоти
+            "fade_start": random.uniform(0.7, 0.9)
         })
 
-# Робочий трансформ з коливанням та поступовим зниканням
+# Трансформ з нескінченним падінням і коливанням
 transform fall_petal(petal):
     xpos petal["x"]
     ypos petal["y_start"]
@@ -1648,21 +1646,32 @@ transform fall_petal(petal):
     rotate petal["rotate"]
     alpha 1.0
 
-    parallel:
-        # Падіння вниз
-        linear petal["speed"] ypos petal["y_end"] rotate petal["rotate"] + petal["rotate_speed"]
-        repeat
+    # Основне падіння вниз з повторенням
+    linear petal["speed"] ypos petal["y_end"] rotate petal["rotate"] + petal["rotate_speed"] alpha 0.0
+    repeat
 
+    # Коливання по X паралельно
     parallel:
-        # Коливання по X
         linear petal["speed"]/2 xpos petal["x"] + petal["x_offset"]
         linear petal["speed"]/2 xpos petal["x"] - petal["x_offset"]
         repeat
 
-    parallel:
-        # Поступове зникання після fade_start
-        linear petal["speed"] alpha 0.0
-        repeat
+screen main_menu():
+    add "game_menu.jpg"
+
+    for petal in petals:
+        add petal["image"] at fall_petal(petal)
+
+    vbox:
+        spacing 20
+        xalign 0.5
+        yalign 0.6
+
+        textbutton "New Game" action Start()
+        textbutton "Load Game" action ShowMenu("load")
+        textbutton "Preferences" action ShowMenu("preferences")
+        textbutton "Quit" action Quit()
+
 
 screen main_menu():
     add "game_menu.jpg"
