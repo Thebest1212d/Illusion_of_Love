@@ -1609,7 +1609,6 @@ style slider_slider:
 
 init python:
     import random
-    import math
 
     petal_images = [
         "images/Main menu/petal1.png",
@@ -1618,53 +1617,52 @@ init python:
         "images/Main menu/petal4.png",
         "images/Main menu/petal5.png",
         "images/Main menu/petal6.png",
-        "images/Main menu/petal7.png"   
+        "images/Main menu/petal7.png"
     ]
 
     petals = []
-    for i in range(300):
-        side = random.choice(["top", "left", "right"])
-
-        if side == "top":
-            x = random.randint(-100, 2020)
-            y_start = random.randint(-150, -50)
-            y_end = 1080 + 100
-            x_end = x + random.randint(-50, 50)
-        elif side == "left":
-            x = -100
-            y_start = random.randint(0, 1080)
-            y_end = y_start + random.randint(100, 500)
-            x_end = 1920 + 100
-        else:
-            x = 1920 + 100
-            y_start = random.randint(0, 1080)
-            y_end = y_start + random.randint(100, 500)
-            x_end = -100
-
+    for i in range(50):
+        x = random.randint(0, 1920)
+        y_start = random.randint(-200, -50)
+        y_end = 1080 + 50
         petals.append({
             "image": random.choice(petal_images),
-            "x_start": x,
-            "x_end": x_end,
+            "x": x,
             "y_start": y_start,
             "y_end": y_end,
-            "speed": random.uniform(6.0, 18.0),
-            "xscale": random.uniform(0.2, 0.6),
-            "yscale": random.uniform(0.2, 0.6),
-            "rotation": random.uniform(-30, 30),
-            "rotate_speed": random.uniform(-2.0, 2.0),
-            "amplitude": random.uniform(20, 60),  # амплітуда коливань
-            "frequency": random.uniform(0.01, 0.03),  # швидкість коливань
+            "speed": random.uniform(6.0, 12.0),  # час падіння
+            "x_offset": random.randint(50, 120),  # амплітуда коливань
+            "rotate": random.randint(-30, 30),
+            "rotate_speed": random.randint(-60, 60),
+            "xscale": random.uniform(0.3, 0.6),
+            "yscale": random.uniform(0.3, 0.6),
+            "fade_start": random.uniform(0.7, 0.9)  # відносно висоти
         })
 
+# Робочий трансформ з коливанням та поступовим зниканням
 transform fall_petal(petal):
-    xpos petal["x_start"]
+    xpos petal["x"]
     ypos petal["y_start"]
     xzoom petal["xscale"]
     yzoom petal["yscale"]
-    rotate petal["rotation"]
-    
-    linear petal["speed"] ypos petal["y_end"] rotate petal["rotation"] + 360
-    repeat
+    rotate petal["rotate"]
+    alpha 1.0
+
+    parallel:
+        # Падіння вниз
+        linear petal["speed"] ypos petal["y_end"] rotate petal["rotate"] + petal["rotate_speed"]
+        repeat
+
+    parallel:
+        # Коливання по X
+        linear petal["speed"]/2 xpos petal["x"] + petal["x_offset"]
+        linear petal["speed"]/2 xpos petal["x"] - petal["x_offset"]
+        repeat
+
+    parallel:
+        # Поступове зникання після fade_start
+        linear petal["speed"] alpha 0.0
+        repeat
 
 screen main_menu():
     add "game_menu.jpg"
