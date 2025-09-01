@@ -1622,7 +1622,7 @@ init python:
     ]
 
     petals = []
-    for i in range(200):
+    for i in range(300):
         side = random.choice(["top", "left", "right"])
 
         if side == "top":
@@ -1681,4 +1681,3 @@ screen main_menu():
         textbutton "Load Game" action ShowMenu("load")
         textbutton "Preferences" action ShowMenu("preferences")
         textbutton "Quit" action Quit()
-
