@@ -1608,7 +1608,7 @@ style slider_slider:
     xsize 900
 
 init python:
-    import random
+    import random, math
 
     petal_images = [
         "images/Main menu/petal1.png",
@@ -1629,17 +1629,18 @@ init python:
             "x": base_x,
             "y_start": random.randint(-200, -50),
             "y_end": 1130,
-            "speed": random.uniform(6.0, 12.0),
+            "speed": random.uniform(8.0, 14.0),   # тривалість падіння
             "rotate": random.randint(-30, 30),
-            "rotate_speed": random.uniform(-60, 60),
+            "rotate_speed": random.uniform(-40, 40),
             "xscale": random.uniform(0.3, 0.6),
             "yscale": random.uniform(0.3, 0.6),
-            "depth_alpha": random.uniform(0.5, 1.0),
-            "wind_direction": random.uniform(-400, 400),  # куди зносить вітер
-            "wave_offset": random.randint(40, 120),       # дрібне коливання
+            "depth_alpha": random.uniform(0.6, 1.0),
+            "wind_direction": random.uniform(-300, 300),
+            "wave_offset": random.randint(40, 100),
         })
 
-# === Трансформ із плавним вітром ===
+
+# === Трансформ із плавним рухом ===
 transform fall_petal(petal):
     xpos petal["x"]
     ypos petal["y_start"]
@@ -1649,27 +1650,29 @@ transform fall_petal(petal):
     alpha petal["depth_alpha"]
 
     parallel:
-        # Падіння вниз по діагоналі з плавним рухом
+        # Плавне падіння вниз + зникнення тільки наприкінці
         easein petal["speed"] ypos petal["y_end"] xpos petal["x"] + petal["wind_direction"] alpha 0.0 rotate petal["rotate"] + petal["rotate_speed"]
-        pause 0.3
+        pause 0.5
+        # «респавн» зверху
         xpos petal["x"]
         ypos petal["y_start"]
         alpha petal["depth_alpha"]
         repeat
 
     parallel:
-        # М'яке коливання вліво-вправо
+        # М'яке коливання вліво-вправо (без різких ривків, синусоїдально)
         block:
-            easein petal["speed"]/4 xpos petal["x"] + petal["wave_offset"]
-            easeout petal["speed"]/4 xpos petal["x"] - petal["wave_offset"]
+            linear petal["speed"]/2 xpos petal["x"] + petal["wave_offset"]
+            linear petal["speed"]/2 xpos petal["x"] - petal["wave_offset"]
             repeat
 
     parallel:
-        # Легке гойдання (поворот з плавним зміщенням)
+        # Легке гойдання (поворот туди-назад, плавно)
         block:
-            easein petal["speed"]/2 rotate petal["rotate"] + petal["rotate_speed"]/2
-            easeout petal["speed"]/2 rotate petal["rotate"] - petal["rotate_speed"]/2
+            linear petal["speed"]/3 rotate petal["rotate"] + petal["rotate_speed"]/2
+            linear petal["speed"]/3 rotate petal["rotate"] - petal["rotate_speed"]/2
             repeat
+
 
 # === Головне меню ===
 screen main_menu():

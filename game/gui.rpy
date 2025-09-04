@@ -31,11 +31,11 @@ define gui.accent_color = '#0099cc'
 
 ## Колір, який використовується для текстової кнопки, коли вона не вибрана і не
 ## наведена.
-define gui.idle_color = '#888888'
+define gui.idle_color = '#ffffff'
 
 ## Дрібний колір використовується для дрібного тексту, який має бути яскравішим/
 ## темнішим, щоб досягти того самого ефекту.
-define gui.idle_small_color = '#aaaaaa'
+define gui.idle_small_color = '#ffffff'
 
 ## Колір, який використовується для кнопок і смуг, на які наводяться.
 define gui.hover_color = '#66c1e0'
