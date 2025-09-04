@@ -1620,59 +1620,58 @@ init python:
         "images/Main menu/petal7.png"
     ]
 
-    # Створюємо список пелюсток із випадковими параметрами
     petals = []
     for i in range(200):
+        base_x = random.randint(0, 1920)
+
         petals.append({
             "image": random.choice(petal_images),
-            "x": random.randint(0, 1920),
+            "x": base_x,
             "y_start": random.randint(-200, -50),
-            "y_end": 1080 + 50,
+            "y_end": 1130,
             "speed": random.uniform(6.0, 12.0),
-            "x_offset": random.randint(50, 120),
             "rotate": random.randint(-30, 30),
-            "rotate_speed": random.randint(-60, 60),
+            "rotate_speed": random.uniform(-60, 60),
             "xscale": random.uniform(0.3, 0.6),
             "yscale": random.uniform(0.3, 0.6),
-            "fade_start": random.uniform(0.7, 0.9)
+            "depth_alpha": random.uniform(0.5, 1.0),
+            "wind_direction": random.uniform(-400, 400),  # куди зносить вітер
+            "wave_offset": random.randint(40, 120),       # дрібне коливання
         })
 
-# Трансформ з нескінченним падінням і коливанням
+# === Трансформ із плавним вітром ===
 transform fall_petal(petal):
     xpos petal["x"]
     ypos petal["y_start"]
     xzoom petal["xscale"]
     yzoom petal["yscale"]
     rotate petal["rotate"]
-    alpha 1.0
+    alpha petal["depth_alpha"]
 
-    # Основне падіння вниз з повторенням
-    linear petal["speed"] ypos petal["y_end"] rotate petal["rotate"] + petal["rotate_speed"] alpha 0.0
-    repeat
-
-    # Коливання по X паралельно
     parallel:
-        linear petal["speed"]/2 xpos petal["x"] + petal["x_offset"]
-        linear petal["speed"]/2 xpos petal["x"] - petal["x_offset"]
+        # Падіння вниз по діагоналі з плавним рухом
+        easein petal["speed"] ypos petal["y_end"] xpos petal["x"] + petal["wind_direction"] alpha 0.0 rotate petal["rotate"] + petal["rotate_speed"]
+        pause 0.3
+        xpos petal["x"]
+        ypos petal["y_start"]
+        alpha petal["depth_alpha"]
         repeat
 
-screen main_menu():
-    add "game_menu.jpg"
+    parallel:
+        # М'яке коливання вліво-вправо
+        block:
+            easein petal["speed"]/4 xpos petal["x"] + petal["wave_offset"]
+            easeout petal["speed"]/4 xpos petal["x"] - petal["wave_offset"]
+            repeat
 
-    for petal in petals:
-        add petal["image"] at fall_petal(petal)
+    parallel:
+        # Легке гойдання (поворот з плавним зміщенням)
+        block:
+            easein petal["speed"]/2 rotate petal["rotate"] + petal["rotate_speed"]/2
+            easeout petal["speed"]/2 rotate petal["rotate"] - petal["rotate_speed"]/2
+            repeat
 
-    vbox:
-        spacing 20
-        xalign 0.5
-        yalign 0.6
-
-        textbutton "New Game" action Start()
-        textbutton "Load Game" action ShowMenu("load")
-        textbutton "Preferences" action ShowMenu("preferences")
-        textbutton "Quit" action Quit()
-
-
+# === Головне меню ===
 screen main_menu():
     add "game_menu.jpg"
 
