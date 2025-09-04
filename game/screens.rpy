@@ -1650,6 +1650,7 @@ transform fall_petal(petal):
     alpha petal["depth_alpha"]
 
     parallel:
+        pause random.uniform(0.0, petal["speed"]/2)  # початкова затримка для різного старту
         # Плавне падіння вниз + зникнення тільки наприкінці
         easein petal["speed"] ypos petal["y_end"] xpos petal["x"] + petal["wind_direction"] alpha 0.0 rotate petal["rotate"] + petal["rotate_speed"]
         pause 0.5
@@ -1676,17 +1677,31 @@ transform fall_petal(petal):
 
 # === Головне меню ===
 screen main_menu():
-    add "game_menu.jpg"
+    # Фон
+    add "gui/main_menu.png"
 
+    # Пелюстки
     for petal in petals:
         add petal["image"] at fall_petal(petal)
 
+    # Навігаційні кнопки
     vbox:
-        spacing 20
+        style_prefix "navigation"
         xalign 0.5
-        yalign 0.6
+        yalign 0.8
+        spacing gui.navigation_spacing
 
-        textbutton "New Game" action Start()
-        textbutton "Load Game" action ShowMenu("load")
-        textbutton "Preferences" action ShowMenu("preferences")
-        textbutton "Quit" action Quit()
+        # Основні кнопки
+        textbutton _("Почати") action Start()
+        textbutton _("Історія") action ShowMenu("history")
+        textbutton _("Зберегти") action ShowMenu("save")
+        textbutton _("Завантажити") action ShowMenu("load")
+        textbutton _("Налаштування") action ShowMenu("preferences")
+        textbutton _("Досягнення") action ShowMenu("bobcachievements")
+        textbutton _("Про гру") action ShowMenu("about")
+
+        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+            textbutton _("Довідка") action ShowMenu("help")
+
+        if renpy.variant("pc"):
+            textbutton _("Вийти") action Quit(confirm=True)
