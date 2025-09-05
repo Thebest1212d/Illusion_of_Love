@@ -429,10 +429,32 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
         hbox:
 
-            ## Зарезервуйте місце для розділу навігації.
+            # Ліва панель з кнопками (навігація)
             frame:
                 style "game_menu_navigation_frame"
 
+                vbox:
+                    spacing 15
+                    xalign 0.5
+
+                    textbutton _("Почати") style "mm_button" action Start()
+                    textbutton _("Історія") style "mm_button" action ShowMenu("history")
+                    textbutton _("Зберегти") style "mm_button" action ShowMenu("save")
+                    textbutton _("Завантажити") style "mm_button" action ShowMenu("load")
+                    textbutton _("Налаштування") style "mm_button" action ShowMenu("preferences")
+                    textbutton _("Досягнення") style "mm_button" action ShowMenu("bobcachievements")
+                    textbutton _("Про гру") style "mm_button" action ShowMenu("about")
+                    textbutton _("Довідка") style "mm_button" action ShowMenu("help")
+                    textbutton _("Повернутися") style "mm_button" action Function(lambda: renpy.call_in_new_context("_invoke_main_menu"))
+
+
+                    if renpy.variant("pc"):
+                        textbutton _("Вийти") style "mm_button" action Quit(confirm=True)
+
+                    # Оце твоя кнопка "Назад/Повернутися"
+                    #textbutton _("Повернутися") style "mm_button" action ShowMenu("main_menu")
+
+            # Права панель з контентом (власне текст довідки/налаштувань тощо)
             frame:
                 style "game_menu_content_frame"
 
@@ -444,7 +466,6 @@ screen game_menu(title, scroll=None, yinitial=0.0):
                         mousewheel True
                         draggable True
                         pagekeys True
-
                         side_yfill True
 
                         vbox:
@@ -455,31 +476,18 @@ screen game_menu(title, scroll=None, yinitial=0.0):
                     vpgrid:
                         cols 1
                         yinitial yinitial
-
                         scrollbars "vertical"
                         mousewheel True
                         draggable True
                         pagekeys True
-
                         side_yfill True
 
                         transclude
 
                 else:
-
                     transclude
 
-    use navigation
-
-    textbutton _("Повернутися"):
-        style "return_button"
-
-        action Return()
-
     label title
-
-    if main_menu:
-        key "game_menu" action ShowMenu("main_menu")
 
 
 style game_menu_outer_frame is empty
@@ -1675,6 +1683,29 @@ transform fall_petal(petal):
             repeat
 
 
+# === Стилі для кнопок головного меню ===
+init python:
+    # Основний стиль кнопок меню
+    style.mm_button = Style(style.default)
+    style.mm_button.size_group = "mm_buttons"
+    style.mm_button.background = Solid("#0004")             # легкий чорний фон
+    style.mm_button.hover_background = Solid("#2225")       # трохи світліший при hover
+    style.mm_button.padding = (6, 14)                       # відступи всередині
+    style.mm_button.xminimum = 240                          # однакова ширина
+
+    # Використовуємо ТВОЇ шрифти (як у Bild 1), тільки кольори + hover
+    style.mm_button_text.color = "#33aaff"                  # ніжний блакитний
+    style.mm_button_text.hover_color = "#ffffff"            # білий при наведенні
+    style.mm_button_text.outlines = [(1, "#000000", 0, 0)]  # чорний тонкий контур
+    style.mm_button_text.size = 24                          # як у тебе в Bild 1
+
+    # Стиль для "Вийти" з червоним акцентом
+    style.quit_button = Style(style.mm_button)
+    style.quit_button_text = Style(style.mm_button_text)
+    style.quit_button_text.color = "#ff4444"
+    style.quit_button_text.hover_color = "#ff8888"
+
+
 # === Головне меню ===
 screen main_menu():
     # Фон
@@ -1685,23 +1716,26 @@ screen main_menu():
         add petal["image"] at fall_petal(petal)
 
     # Навігаційні кнопки
-    vbox:
-        style_prefix "navigation"
+    frame:
+        background Solid("#0002")       # дуже легка напівпрозора підкладка під панель
         xalign 0.5
-        yalign 0.8
-        spacing gui.navigation_spacing
+        yalign 0.9
+        padding (20, 20)
 
-        # Основні кнопки
-        textbutton _("Почати") action Start()
-        textbutton _("Історія") action ShowMenu("history")
-        textbutton _("Зберегти") action ShowMenu("save")
-        textbutton _("Завантажити") action ShowMenu("load")
-        textbutton _("Налаштування") action ShowMenu("preferences")
-        textbutton _("Досягнення") action ShowMenu("bobcachievements")
-        textbutton _("Про гру") action ShowMenu("about")
+        vbox:
+            spacing 15
+            xalign 0.5
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-            textbutton _("Довідка") action ShowMenu("help")
+            textbutton _("Почати") style "mm_button" action Start()
+            textbutton _("Історія") style "mm_button" action ShowMenu("history")
+            textbutton _("Зберегти") style "mm_button" action ShowMenu("save")
+            textbutton _("Завантажити") style "mm_button" action ShowMenu("load")
+            textbutton _("Налаштування") style "mm_button" action ShowMenu("preferences")
+            textbutton _("Досягнення") style "mm_button" action ShowMenu("bobcachievements")
+            textbutton _("Про гру") style "mm_button" action ShowMenu("about")
 
-        if renpy.variant("pc"):
-            textbutton _("Вийти") action Quit(confirm=True)
+            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+                textbutton _("Довідка") style "mm_button" action ShowMenu("help")
+
+            if renpy.variant("pc"):
+                textbutton _("Вийти") style "quit_button" action Quit(confirm=True)
