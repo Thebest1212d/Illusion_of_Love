@@ -31,18 +31,18 @@ define gui.accent_color = '#0099cc'
 
 ## Колір, який використовується для текстової кнопки, коли вона не вибрана і не
 ## наведена.
-define gui.idle_color = '#0099cc'
+define gui.idle_color = '#66c1e0'
 
 ## Дрібний колір використовується для дрібного тексту, який має бути яскравішим/
 ## темнішим, щоб досягти того самого ефекту.
 define gui.idle_small_color = '#ffffff'
 
 ## Колір, який використовується для кнопок і смуг, на які наводяться.
-define gui.hover_color = '#ffffff'
+define gui.hover_color = '#0099cc'
 
 ## Колір, який використовується для текстової кнопки, коли вона вибрана, але не
 ## в фокусі. Кнопку вибрано, якщо це поточний екран або значення параметра.
-define gui.selected_color = '#66c1e0'
+define gui.selected_color = '#0099cc'
 
 ## Колір текстової кнопки, якщо її неможливо вибрати.
 define gui.insensitive_color = '#8888887f'
@@ -71,16 +71,16 @@ define gui.name_text_font = "fonts/Great_Vibes/GreatVibes-Regular.ttf"
 define gui.interface_text_font = "fonts/Bad_Script/BadScript-Regular.ttf"
 
 ## Розмір звичайного тексту діалогу.
-define gui.text_size = 33
+define gui.text_size = 34
 
 ## Розмір імен персонажів.
-define gui.name_text_size = 60
+define gui.name_text_size = 52
 
 ## Розмір тексту в інтерфейсі користувача гри.
-define gui.interface_text_size = 33
+define gui.interface_text_size = 30
 
 ## Розмір міток в інтерфейсі користувача гри.
-define gui.label_text_size = 36
+define gui.label_text_size = 40
 
 ## Розмір тексту на екрані сповіщень.
 define gui.notify_text_size = 24

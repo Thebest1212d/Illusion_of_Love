@@ -445,7 +445,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
                     textbutton _("Досягнення") style "mm_button" action ShowMenu("bobcachievements")
                     textbutton _("Про гру") style "mm_button" action ShowMenu("about")
                     textbutton _("Довідка") style "mm_button" action ShowMenu("help")
-                    textbutton _("Повернутися") style "mm_button" action Function(lambda: renpy.call_in_new_context("_invoke_main_menu"))
+                    textbutton _("Головне меню") style "mm_button" action MainMenu(confirm=True)
 
 
                     if renpy.variant("pc"):
@@ -488,6 +488,9 @@ screen game_menu(title, scroll=None, yinitial=0.0):
                     transclude
 
     label title
+#Відступ у ігроовому меню
+style game_menu_navigation_frame:
+    padding (60, -25, 60, -20)
 
 
 style game_menu_outer_frame is empty
@@ -1685,25 +1688,25 @@ transform fall_petal(petal):
 
 # === Стилі для кнопок головного меню ===
 init python:
-    # Основний стиль кнопок меню
     style.mm_button = Style(style.default)
     style.mm_button.size_group = "mm_buttons"
-    style.mm_button.background = Solid("#0004")             # легкий чорний фон
-    style.mm_button.hover_background = Solid("#2225")       # трохи світліший при hover
-    style.mm_button.padding = (6, 14)                       # відступи всередині
-    style.mm_button.xminimum = 240                          # однакова ширина
+    style.mm_button.background = Solid("#0003")              # трохи легший idle
+    style.mm_button.hover_background = Solid("#33aaff20")    # ніжний блакитний при hover
+    style.mm_button.padding = (6, 14)
+    style.mm_button.xminimum = 240
 
-    # Використовуємо ТВОЇ шрифти (як у Bild 1), тільки кольори + hover
-    style.mm_button_text.color = "#33aaff"                  # ніжний блакитний
-    style.mm_button_text.hover_color = "#ffffff"            # білий при наведенні
-    style.mm_button_text.outlines = [(1, "#000000", 0, 0)]  # чорний тонкий контур
-    style.mm_button_text.size = 24                          # як у тебе в Bild 1
+    style.mm_button_text.color = "#33aaff"
+    style.mm_button_text.hover_color = "#ffffff"
+    style.mm_button_text.outlines = [(2, "#000000", 0, 0)]
+    style.mm_button_text.hover_outlines = [(2, "#33aaff", 0, 0)]
+    style.mm_button_text.size = 26
 
-    # Стиль для "Вийти" з червоним акцентом
     style.quit_button = Style(style.mm_button)
     style.quit_button_text = Style(style.mm_button_text)
     style.quit_button_text.color = "#ff4444"
-    style.quit_button_text.hover_color = "#ff8888"
+    style.quit_button_text.hover_color = "#ffffff"
+    style.quit_button_text.hover_outlines = [(2, "#ff8888", 0, 0)]
+
 
 
 # === Головне меню ===
@@ -1719,20 +1722,17 @@ screen main_menu():
     frame:
         background Solid("#0002")       # дуже легка напівпрозора підкладка під панель
         xalign 0.5
-        yalign 0.9
+        yalign 0.8
         padding (20, 20)
 
         vbox:
-            spacing 15
+            spacing 28                  # більше повітря між кнопками
             xalign 0.5
 
             textbutton _("Почати") style "mm_button" action Start()
-            textbutton _("Історія") style "mm_button" action ShowMenu("history")
-            textbutton _("Зберегти") style "mm_button" action ShowMenu("save")
             textbutton _("Завантажити") style "mm_button" action ShowMenu("load")
             textbutton _("Налаштування") style "mm_button" action ShowMenu("preferences")
             textbutton _("Досягнення") style "mm_button" action ShowMenu("bobcachievements")
-            textbutton _("Про гру") style "mm_button" action ShowMenu("about")
 
             if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
                 textbutton _("Довідка") style "mm_button" action ShowMenu("help")
