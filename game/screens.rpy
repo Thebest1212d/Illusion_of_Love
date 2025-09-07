@@ -322,10 +322,10 @@ screen navigation():
 
         textbutton _("Про гру") action ShowMenu("about")
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+        # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-            ## Допомога не є необхідною або актуальною для мобільних пристроїв.
-            textbutton _("Довідка") action ShowMenu("help")
+        #     ## Допомога не є необхідною або актуальною для мобільних пристроїв.
+        #     textbutton _("Довідка") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
@@ -444,7 +444,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
                     textbutton _("Налаштування") style "mm_button" action ShowMenu("preferences")
                     textbutton _("Досягнення") style "mm_button" action ShowMenu("bobcachievements")
                     textbutton _("Про гру") style "mm_button" action ShowMenu("about")
-                    textbutton _("Довідка") style "mm_button" action ShowMenu("help")
+                    # textbutton _("Довідка") style "mm_button" action ShowMenu("help")
                     textbutton _("Головне меню") style "mm_button" action MainMenu(confirm=True)
 
 
@@ -1702,7 +1702,7 @@ init python:
     style.mm_button_text.hover_color = "#ffffff"
     style.mm_button_text.outlines = [(2, "#000000", 0, 0)]
     style.mm_button_text.hover_outlines = [(2, "#33aaff", 0, 0)]
-    style.mm_button_text.size = 26
+    style.mm_button_text.size = 32
 
     style.quit_button = Style(style.mm_button)
     style.quit_button_text = Style(style.mm_button_text)
@@ -1710,9 +1710,13 @@ init python:
     style.quit_button_text.hover_color = "#ffffff"
     style.quit_button_text.hover_outlines = [(2, "#ff8888", 0, 0)]
 
-    # === Стилі для кнопки "так" ігрового меню ===
+# === Стилі для кнопки "так" ігрового меню ===
     style.confirm_yes_button_text.color = "#ff4444"
     style.confirm_yes_button_text.hover_color = "#ff8888"
+    
+# === Стилі для кнопок, які не є активними в ігровому меню ===
+    style.mm_button.insensitive_background = Solid("#0003")   # темніший, але прозоріший фон
+    style.mm_button_text.insensitive_color = "#777777"        # сірий текст
 
 
 init python:
@@ -1751,7 +1755,7 @@ screen main_menu():
         padding (20, 20)
 
         vbox:
-            spacing 28                  # більше повітря між кнопками
+            spacing 20
             xalign 0.5
 
             textbutton _("Почати") style "mm_button" action Start()
@@ -1759,8 +1763,8 @@ screen main_menu():
             textbutton _("Налаштування") style "mm_button" action ShowMenu("preferences")
             textbutton _("Досягнення") style "mm_button" action ShowMenu("bobcachievements")
 
-            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-                textbutton _("Довідка") style "mm_button" action ShowMenu("help")
+            # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+            #     textbutton _("Довідка") style "mm_button" action ShowMenu("help")
 
             if renpy.variant("pc"):
                 textbutton _("Вийти") style "quit_button" action Quit(confirm=True)
