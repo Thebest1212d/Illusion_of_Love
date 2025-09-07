@@ -58,6 +58,20 @@ init python:
         renpy.music.play(playlist, loop=True)
 
 
+init python:
+    # звук для всіх кнопок (у т.ч. textbutton)
+    style.button.activate_sound = "audio/UI/button-press.mp3"
+    style.button.hover_sound = "audio/UI/hover.mp3"
+
+    # Якщо у тебе є окремі стилі для меню
+    style.mm_button.activate_sound = "audio/UI/button-press.mp3"
+    style.mm_button.hover_sound = "audio/UI/hover.mp3"
+
+    style.quit_button.activate_sound = "audio/UI/button-press.mp3"
+    style.quit_button.hover_sound = "audio/UI/hover.mp3"
+
+
+
 #---------------------------------------------------------------------------------------------------------------
 
 #Початкова заставка

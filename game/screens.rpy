@@ -449,7 +449,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
 
                     if renpy.variant("pc"):
-                        textbutton _("Вийти") style "mm_button" action Quit(confirm=True)
+                        textbutton _("Вийти") style "quit_button" action Quit(confirm=True)
 
                     # Оце твоя кнопка "Назад/Повернутися"
                     #textbutton _("Повернутися") style "mm_button" action ShowMenu("main_menu")
@@ -1176,9 +1176,12 @@ screen confirm(message, yes_action, no_action):
                 xalign 0.5
                 spacing 150
 
-                textbutton _("Так") action yes_action
-                textbutton _("Ні") action no_action
+                # Червона кнопка «Так»
+                textbutton _("Так") action yes_action style "confirm_yes_button"
 
+                # Блакитна кнопка «Ні»
+                textbutton _("Ні") action no_action
+                
     ## Клацніть правою кнопкою миші та вийдіть із відповіді "no".
     key "game_menu" action no_action
 
@@ -1707,16 +1710,24 @@ init python:
     style.quit_button_text.hover_color = "#ffffff"
     style.quit_button_text.hover_outlines = [(2, "#ff8888", 0, 0)]
 
+    # === Стилі для кнопки "так" ігрового меню ===
+    style.confirm_yes_button_text.color = "#ff4444"
+    style.confirm_yes_button_text.hover_color = "#ff8888"
+
+
 
 
 # === Головне меню ===
 screen main_menu():
     # Фон
-    add "gui/main_menu.png"
+    add "images/game_menu.jpg"
 
     # Пелюстки
     for petal in petals:
         add petal["image"] at fall_petal(petal)
+
+    # Соломія (праворуч, з анімацією)
+    add "images/solomia normal.png" at solomia_idle
 
     # Навігаційні кнопки
     frame:
