@@ -1715,6 +1715,18 @@ init python:
     style.confirm_yes_button_text.hover_color = "#ff8888"
 
 
+init python:
+    import math
+
+    def solomia_wave(st, at):
+        # базовий yoffset = 50, амплітуда = 10 px
+        # 0.5 = швидкість коливання (менше = повільніше)
+        y = 50 + 5 * math.sin(st * 2.5)
+
+        return At("images/solomia normal.png", Transform(yoffset=y)), 0.02
+
+# оголошення як картинку
+image solomia_anim = DynamicDisplayable(solomia_wave)
 
 
 # === Головне меню ===
@@ -1727,7 +1739,9 @@ screen main_menu():
         add petal["image"] at fall_petal(petal)
 
     # Соломія (праворуч, з анімацією)
-    add "images/solomia normal.png" at solomia_idle
+    # add solomia_anim at solomia_idle
+    add "solomia_anim" xalign 1.0 yalign 1.0 xoffset 600
+
 
     # Навігаційні кнопки
     frame:

@@ -57,7 +57,9 @@ init python:
         random.shuffle(playlist)
         renpy.music.play(playlist, loop=True)
 
+#---------------------------------------------------------------------------------------------------------------
 
+# Звуки для кнопок
 init python:
     # звук для всіх кнопок (у т.ч. textbutton)
     style.button.activate_sound = "audio/UI/button-press.mp3"
@@ -69,8 +71,6 @@ init python:
 
     style.quit_button.activate_sound = "audio/UI/button-press.mp3"
     style.quit_button.hover_sound = "audio/UI/hover.mp3"
-
-
 
 #---------------------------------------------------------------------------------------------------------------
 
