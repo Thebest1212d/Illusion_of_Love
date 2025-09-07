@@ -1719,13 +1719,15 @@ init python:
     style.mm_button_text.insensitive_color = "#777777"        # сірий текст
 
 
+
+# === Анімація Соломії праворуч на головному меню ===
 init python:
     import math
 
     def solomia_wave(st, at):
         # базовий yoffset = 50, амплітуда = 10 px
         # 0.5 = швидкість коливання (менше = повільніше)
-        y = 50 + 5 * math.sin(st * 2.5)
+        y = 50 + 2 * math.sin(st * 5)
 
         return At("images/solomia normal.png", Transform(yoffset=y)), 0.02
 
@@ -1737,6 +1739,16 @@ image solomia_anim = DynamicDisplayable(solomia_wave)
 screen main_menu():
     # Фон
     add "images/game_menu.jpg"
+
+    # Назва гри
+    if gui.show_name:
+        text config.name style "main_menu_title" xalign 0.5 yalign 0.1
+
+    # Версія (правий нижній кут)
+    text "Версія 0.9.5" style "main_menu_info" xalign 0.98 yalign 0.98
+
+    # Автор (лівий нижній кут)
+    text "2025 Бритюк Богдан" style "main_menu_info" xalign 0.02 yalign 0.98  
 
     # Пелюстки
     for petal in petals:
@@ -1751,7 +1763,7 @@ screen main_menu():
     frame:
         background Solid("#0002")       # дуже легка напівпрозора підкладка під панель
         xalign 0.5
-        yalign 0.8
+        yalign 0.7
         padding (20, 20)
 
         vbox:
@@ -1768,3 +1780,19 @@ screen main_menu():
 
             if renpy.variant("pc"):
                 textbutton _("Вийти") style "quit_button" action Quit(confirm=True)
+
+
+# Стиль заголовка гри
+style main_menu_title:
+    size 120
+    font "fonts/Great_Vibes/GreatVibes-Regular.ttf"
+    color "#0099cc"
+    outlines [(3, "#ffffff", 0, 0)]
+
+# Стиль для додаткової інформації (версія та автор)
+style main_menu_info:
+    size 35
+    font "fonts/Bad_Script/BadScript-Regular.ttf"
+    color "#33ccff"
+    outlines [(2, "#000000", 0, 0), (4, "#004466", 0, 0)]
+

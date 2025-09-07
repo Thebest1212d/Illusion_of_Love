@@ -18,7 +18,7 @@ define config.name = _("Illusion of love")
 ## Визначає, чи заголовок, наведений вище, відображається на екрані головного
 ## меню. Встановіть значення False, щоб приховати назву.
 
-define gui.show_name = False
+define gui.show_name = True
 
 
 ## Версія гри.

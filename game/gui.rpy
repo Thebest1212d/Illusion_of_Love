@@ -92,7 +92,7 @@ define gui.title_text_size = 75
 ## Головне та ігрове меню ######################################################
 
 ## Зображення, які використовуються для головного та ігрового меню.
-define gui.main_menu_background = "gui/main_menu.png"
+define gui.main_menu_background = "gui/game_menu.png"
 define gui.game_menu_background = "gui/game_menu.png"
 
 
