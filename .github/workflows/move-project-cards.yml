@@ -1,0 +1,49 @@
+name: Move Project Cards by Labels
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  move_card:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Move card in Classic Project
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const labelName = context.payload.label.name;
+
+            // ID твоїх колонок Classic Project (отримати через GitHub API)
+            const columnMap = {
+              'todo': 12345678,          // заміни на реальні ID
+              'in-progress': 87654321,
+              'done': 11223344
+            };
+
+            const columnId = columnMap[labelName];
+            if (!columnId) {
+              console.log(`No column mapped for label: ${labelName}`);
+              return;
+            }
+
+            // Отримуємо картку Project, що відповідає Issue
+            const { data: cards } = await github.projects.listCards({
+              column_id: columnId
+            });
+
+            // Знаходимо картку, що відповідає Issue
+            const issueNumber = context.payload.issue.number;
+            const card = cards.find(c => c.content_url && c.content_url.endsWith(`/issues/${issueNumber}`));
+
+            if (card) {
+              console.log(`Card already in correct column: ${labelName}`);
+            } else {
+              // Створюємо картку в потрібній колонці
+              await github.projects.createCard({
+                column_id: columnId,
+                content_id: context.payload.issue.id,
+                content_type: 'Issue'
+              });
+              console.log(`Moved card for Issue #${issueNumber} to column: ${labelName}`);
+            }
