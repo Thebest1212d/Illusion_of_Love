@@ -37,6 +37,7 @@ define audio.pobeda = "audio/pobeda.mp3"
 define audio.achievement = "audio/achievement.mp3"
 define audio.wedding = "audio/Wedding.mp3"
 define audio.ring = "audio/ring.mp3"
+define audio.horror = "audio/Come Play with Me.mp3"
 
 
 #---------------------------------------------------------------------------------------------------------------
