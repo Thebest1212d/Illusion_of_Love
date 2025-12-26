@@ -11,6 +11,14 @@ label start2:
 
     $ play_random_playlist()
 
+    # Яндере-рут
+    default yandere_unlocked = False
+    if achievement.has("alone") and achievement.has("success"):
+        $ yandere_unlocked = True
+    else:
+        $ yandere_unlocked = False
+
+
     scene black with dissolve
     centered"Кожен крок, кожен погляд, кожне слово — це вибір. Одні з них зникають, наче слід на воді. Інші залишаються назавжди"
     centered"Людина завжди стоїть перед роздоріжжям. Навіть тоді, коли здається, що дороги немає"
@@ -72,6 +80,10 @@ while True:
     "Це благородно, але водночас її виснажує"
     show solomia blink with dissolve
     s "Ей, ти де? Зачепилася думка?"
+    if yandere_unlocked:
+        "Її погляд затримується на мені трохи довше, ніж я очікував"
+    else:
+        "Соломія виглядає трохи сором’язливо, як завжди"
     h "Ой, Соломіє, вибач, літав у хмарах"
     h "Та що там, у мене сьогодні… як це сказати… день нескінченних думок"
     

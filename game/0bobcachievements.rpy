@@ -30,6 +30,7 @@ define BOBCACHIEVEMENT_LIST = (
     ("gamer", _("Геймер"), _("Молодий кіберспортсмен")),
     ("secret", _("Задачка"), _("Молодий Ейнштейн"), True),
     ("secret2", _("Історик"), _("Послідовник Геродота"), True),
+    ("yandere_end", _("Ілюзія любові"), _("Тепер ти не один"), True),
     
     #Приховане досягнення
     #("samplehidden", _("My First Achievement"), _("A sample achievement to demonstrate usage of hidden achievements."), True),

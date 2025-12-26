@@ -133,7 +133,10 @@ transform normal:
 #Витяг імені власника ПК
 init python:
     import os
-    usID=os.environ.get("USERNAME")
+    usID = os.environ.get("USERNAME") or os.environ.get("USER")
+
+    if not usID:
+        usID = "ти"
 
 #---------------------------------------------------------------------------------------------------------------
 
