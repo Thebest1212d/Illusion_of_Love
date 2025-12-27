@@ -1,6 +1,6 @@
 # Illusion of Love UA 💖
 
-![Progress](https://img.shields.io/badge/Progress-72%25-blue)
+![Progress](https://img.shields.io/badge/Progress-76%25-blue)
 
 > *"Історія про кохання, вибір та крихку межу між реальністю та ілюзією."*  
 
