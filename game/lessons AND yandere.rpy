@@ -232,4 +232,3 @@ label lessons3:
             pass
 
         jump endb
-    #check score for lesson3 знаходиться в neutral_and_bad_end.rpy
