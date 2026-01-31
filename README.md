@@ -55,7 +55,6 @@
 - [ ] Загальне посилення емоційного зв’язку між героями  
   - внутрішні думки  
   - мовчазні паузи  
-  - тілесна близькість без сексуалізації  
 - [ ] Розширення та дописування діалогів для більшої прив’язаності до персонажів  
 - [ ] Більше описів атмосфери, рухів, переживань і дрібних реакцій  
 
@@ -200,7 +199,6 @@ The most important commands are listed in the table below:
 - [ ] Overall strengthening of the emotional connection between the characters  
   - inner thoughts  
   - silent pauses  
-  - physical closeness without sexualization  
 - [ ] Expansion and refinement of dialogues to increase attachment to the characters  
 - [ ] More descriptions of atmosphere, movements, emotions, and subtle reactions  
 
