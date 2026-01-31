@@ -218,9 +218,17 @@ init -1 python:
 
 # #   Код скинення досягнень
 # init python:
-#     # Очищення досягнень при кожному старті (для фінальної збірки)
-#     persistent._achievements = []
-#     persistent._achievements_synced = []
+#     import renpy
+
+#     # ЖОРСТКИЙ RESET ДОСЯГНЕНЬ
+#     if hasattr(persistent, "_achievements"):
+#         persistent._achievements = set()
+
+#     if hasattr(persistent, "_achievements_synced"):
+#         persistent._achievements_synced = set()
+
+#     achievement.clear_all()
+#     achievement.sync()
 
 #     renpy.save_persistent()
 
