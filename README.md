@@ -1,6 +1,6 @@
 # Illusion of Love UA 💖
 
-![Progress](https://img.shields.io/badge/Progress-77%25-blue)
+![Progress](https://img.shields.io/badge/Progress-83%25-blue)
 
 > *"Історія про кохання, вибір та крихку межу між реальністю та ілюзією."*  
 
@@ -69,7 +69,7 @@
   - традиції  
   - страхи  
   - сцени, що поглиблюють взаємодію героїв  
-- [ ] **Секретна кінцівка**  
+- [X] **Секретна кінцівка**  
   - альтернативний емоційний тон  
   - експериментальна гілка  
 
@@ -103,19 +103,19 @@
 
 ## 🖥 Головне меню та UI
 
-- [ ] Новий фон головного меню  
+- [X] Новий фон головного меню  
 - [X] Зміщення назви гри та переробка композиції  
 - [X] Соломія як частина головного меню  
 - [ ] Оновлена анімація дихання Соломії  
 - [X] Фонові анімовані елементи  
   - пелюстки  
   - світло  
-- [ ] Звуки для кнопок  
+- [X] Звуки для кнопок  
 - [ ] Міні-реакції меню (подих, сміх, м’які звуки)  
 
 ## 🛠 Технічні завдання
 
-- [ ] Code review та оптимізація структури `.rpy`  
+- [X] Code review та оптимізація структури `.rpy`  
 - [ ] Оптимізація відео на початку  
 - [ ] Повноцінний OST  
 - [ ] Локалізація на інші мови  
@@ -213,7 +213,7 @@ The most important commands are listed in the table below:
   - traditions  
   - fears  
   - scenes that enhance character interaction  
-- [ ] **Secret ending**  
+- [X] **Secret ending**  
   - alternative emotional tone  
   - experimental narrative branch  
 
@@ -247,19 +247,19 @@ The most important commands are listed in the table below:
 
 ## 🖥 Main Menu and UI
 
-- [ ] New main menu background  
+- [X] New main menu background  
 - [X] Repositioning of the game title and composition adjustments  
 - [X] Solomia as part of the main menu  
 - [ ] Updated breathing animation for Solomia  
 - [X] Animated background elements  
   - petals  
   - light  
-- [ ] Button sound effects  
+- [X] Button sound effects  
 - [ ] Menu micro-reactions (breathing, laughter, soft sounds)  
 
 ## 🛠 Technical Tasks
 
-- [ ] Code review and optimization of the `.rpy` structure  
+- [X] Code review and optimization of the `.rpy` structure  
 - [ ] Intro video optimization  
 - [ ] Full OST  
 - [ ] Localization into other languages  
