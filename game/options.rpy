@@ -23,66 +23,76 @@ define gui.show_name = True
 
 ## Версія гри.
 
-define config.version = "0.9.5"
+define config.version = "0.10.0-beta"
 
 
 ## Текст, який розміщується на екрані інформації про гру. Поставте текст між
 ## потрійними лапками, а між абзацами залиште порожній рядок.
 
-define gui.about = _p(""" 
-Дякую всім хто підтримував розробку цієї гри!\n
-Особлива подяка:
+define gui.about = _p(
+    "Дякую всім, хто підтримував розробку цієї гри!\n"
+    "\n"
+    "Особлива подяка:\n"
+    "Максиму Січкарю — єдиному тестувальнику цієї гри,\n"
+    "а також Фісуновій Вероніці — за дизайнерську частину.\n"
+    "\n"
+    "====================\n"
+    "МУЗИКА\n"
+    "====================\n"
+    "\n"
+    "У грі використовується музика Kevin MacLeod (incompetech.com),\n"
+    "ліцензована за Creative Commons: Attribution 4.0 License.\n"
+    "http://creativecommons.org/licenses/by/4.0/\n"
+    "\n"
+    "Main menu music:\n"
+    "\"Morning\"\n"
+    "\n"
+    "Music used in game:\n"
+    "\"Evening\"\n"
+    "\"Summer Day\"\n"
+    "\"Facile\"\n"
+    "\"Angel Share\"\n"
+    "\"Almost Bliss\"\n"
+    "\"Starting Out Waltz Vivace\"\n"
+    "\"Promising Relationship\"\n"
+    "\"Sad Trio\"\n"
+    "\n"
+    "Music used in mini-games:\n"
+    "\"Captain Scurvy\"\n"
+    "\"Come Play with Me\"\n"
+    "\n"
+    "====================\n"
+    "ЗВУКОВІ ЕФЕКТИ\n"
+    "====================\n"
+    "\n"
+    "У грі також використано різноманітні звукові ефекти\n"
+    "(кроки, удари, двері, дзвінки, поцілунки, реакції, сигнали тощо),\n"
+    "створені автором або отримані з відкритих джерел та використані\n"
+    "в некомерційних цілях.\n"
+    "\n"
+    "====================\n"
+    "ШРИФТИ\n"
+    "====================\n"
+    "\n"
+    "У грі використано шрифти з Google Fonts:\n"
+    "Bad Script\n"
+    "Great Vibes\n"
+    "Pacifico\n"
+    "\n"
+    "Усі шрифти ліцензовані за\n"
+    "SIL Open Font License 1.1\n"
+    "https://scripts.sil.org/OFL\n"
+    "\n"
+    "====================\n"
+    "ІНШІ МАТЕРІАЛИ\n"
+    "====================\n"
+    "\n"
+    "Усі зображення та спрайти, використані в цій грі,\n"
+    "були знайдені в загальнодоступних джерелах в Інтернеті.\n"
+    "Гра не претендує на авторські права на ці матеріали."
+)
 
-Максиму Січкарю, єдиному тестувальнику цієї гри,
-а також Фісуновій Вероніці за дизайнерську частину
 
-Авторські права на музику:
-
-Name of music in main menu: 
-"Morning" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 4.0 License
-http://creativecommons.org/licenses/by/4.0/
-
-Music in game:
-"Evening" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 4.0 License
-http://creativecommons.org/licenses/by/4.0/
-
-"Summer Day" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 4.0 License
-http://creativecommons.org/licenses/by/4.0/
-
-"Angel Share" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 4.0 License
-http://creativecommons.org/licenses/by/4.0/
-
-"Almost Bliss" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 4.0 License
-http://creativecommons.org/licenses/by/4.0/
-
-"Starting Out Waltz Vivace" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 4.0 License
-http://creativecommons.org/licenses/by/4.0/
-
-"Facile" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 4.0 License
-http://creativecommons.org/licenses/by/4.0/
-
-"Promising Relationship" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 4.0 License
-http://creativecommons.org/licenses/by/4.0/
-
-"Sad Trio" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 4.0 License
-http://creativecommons.org/licenses/by/4.0/
-
-Music in game snake:
-"Captain Scurvy" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 4.0 License
-http://creativecommons.org/licenses/by/4.0/
-
-Усі зображення та спрайти, використані в цій грі, були знайдені в загальнодоступних джерелах в Інтернеті. Гра не претендує на авторські права на ці матеріали
-""")
 
 ## Коротка назва гри, яка використовується для виконуваних файлів і каталогів
 ## у вбудованому дистрибутиві. Це має бути лише ASCII і не повинно містити

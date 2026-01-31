@@ -84,11 +84,7 @@ scene black with fade
 
 $ renpy.movie_cutscene('video/video.mkv')
 
-
-screen dark_overlay:
-    modal True
-    add "dark.jpg"  # Зображення з темним фоном
-
+return
 
 #---------------------------------------------------------------------------------------------------------------
 
@@ -119,14 +115,17 @@ image solomia2 blink:
     repeat
 
 transform zoomin:
-    zoom 2.0  # Збільшення персонажа вдвічі
-    xpos 0.5  # Переміщення персонажа до центру екрану
-    ypos 2100
+    zoom 2.0
+    xalign 0.5
+    yanchor 0.22
+    ypos 0.4
 
 transform normal:
-    zoom 1.0  # Значення за замовчуванням
-    xpos 0.5  # Значення за замовчуванням
-    ypos 1.0  # Значення за замовчуванням
+    zoom 1.0
+    xalign 0.5
+    yalign 1.0
+    xanchor 0.5
+    yanchor 1.0
 
 #---------------------------------------------------------------------------------------------------------------
 
@@ -174,13 +173,15 @@ init python:
     
     # Функція для витягування випадкового персонажа
     def pull_gacha():
-        random_number = random.randint(1, 100)  # Генеруємо випадкове число від 1 до 100
-        cumulative_chance = 0  # Лічильник шансів
-        
+        roll = random.uniform(0, 100)
+        cumulative = 0.0
+
         for char in characters:
-            cumulative_chance += char["chance"]  # Додаємо шанс поточного персонажа до загального
-            if random_number <= cumulative_chance:  # Якщо випадкове число в межах шансу персонажа
+            cumulative += char["chance"]
+            if roll <= cumulative:
                 return char
+
+        return characters[-1]  # страховка
 
 #---------------------------------------------------------------------------------------------------------------
 #Вітальне повідомлення перед початком гри
@@ -210,25 +211,16 @@ screen intro_message():
 #---------------------------------------------------------------------------------------------------------------
 
 #Вимкнення прокрутки колесика мишки
-#$ config.rollback_enabled = False
+init -1 python:
+    config.rollback_enabled = False
 
 #---------------------------------------------------------------------------------------------------------------
 
-#   Код скинення досягнень
-# label clear_achievements:
-#     python:
-#         # Перевіряємо, чи існує список досягнень, і ініціалізуємо, якщо потрібно
-#         if persistent._achievements is None:
-#             persistent._achievements = []
-#         if persistent._achievements_synced is None:
-#             persistent._achievements_synced = []
+# #   Код скинення досягнень
+# init python:
+#     # Очищення досягнень при кожному старті (для фінальної збірки)
+#     persistent._achievements = []
+#     persistent._achievements_synced = []
 
-#         # Очищення списків досягнень
-#         persistent._achievements.clear()
-#         persistent._achievements_synced.clear()
-
-#         # Зберігаємо зміни в персистентних даних
-#         renpy.save_persistent()
-#     "Всі досягнення було очищено."
-#     return
+#     renpy.save_persistent()
 

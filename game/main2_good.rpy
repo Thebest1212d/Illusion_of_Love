@@ -1,5 +1,5 @@
 ﻿# --- Початок хорошої гілки ---
-label good_end:
+label good_route_start:
     "Я подумав.. Яка ж вона все таки неймовірна..."
 
     show solomia smiled
@@ -36,7 +36,6 @@ label good_end:
     with dissolve
     "Мабуть, варто поспішити. Не впевнений, що я правильно зробив"
     jump class
-    return
 
 
     #---------------------------------------------------------------------------------------------------------------
@@ -75,12 +74,12 @@ label class:
     # Затемнення екрана
     scene dark with dissolve
 
-    centered"Історія, математика, фізика. Як же нудно"
-    centered"Я хочу просто поспати"
-    centered"Гей!"
-    centered"Що це за голос?"
-    centered"Агов!"
-    centered"ПРОКИНЬСЯ НАРЕШТІ!"
+    centered "Історія, математика, фізика. Як же нудно"
+    centered "Я хочу просто поспати"
+    centered "Гей!"
+    centered "Що це за голос?"
+    centered "Агов!"
+    centered "ПРОКИНЬСЯ НАРЕШТІ!"
 
     scene bg class
     with fade
@@ -96,7 +95,6 @@ label class:
     "Чого вона причепилась?!"
     hide solomia blink with dissolve
     jump walk
-    return
 
     # --- Прогулянка після школи ---
 label walk:
@@ -149,20 +147,20 @@ label walk:
     "Я дуже сьогодні стомився. Хочу відпочивати"
     "Я впав на ліжко"
     scene dark with fade
-    centered"Соломія"
-    centered"Хто я для неї?"
-    centered"Просто друг?"
-    centered"Чи дещо...Більше?"
-    centered"Цікаво, коли вона миється у ванній..."
+    centered "Соломія"
+    centered "Хто я для неї?"
+    centered "Просто друг?"
+    centered "Чи дещо...Більше?"
+    centered "Цікаво, коли вона миється у ванній..."
     play sound dusch
     s "[heroname]"
     s "Я хочу стати ще ближче"
     s "[heroname]..."
     "Я нахиляюсь ближче"
     play sound budilnik
-    centered"Лайно"
-    centered"Ще б трішки. Як завжди на найцікавішому"
-    centered"Час прокидатись"
+    centered "Лайно"
+    centered "Ще б трішки. Як завжди на найцікавішому"
+    centered "Час прокидатись"
     scene room_heroday with dissolve
     "Треба збиратись у школу"
     jump seconddayg
@@ -255,7 +253,6 @@ label seconddayg:
             stop sound fadeout 2.0
 
             jump dare
-            return
         
         # --- Відмова від запрошення, інша гілка ---
         "Краще не варто":     
@@ -303,7 +300,6 @@ label seconddayg:
                     u "Урок закінчено, ви гарно попрацювали, молодці"
                     "Чудово, а тепер..." 
             jump magazone
-            return
 
 # --- Вибір магазин ---
 label magazone:
@@ -429,33 +425,32 @@ label magazone:
             play sound door
             "Ось я і вдома"
             jump relationship
-            return
 
         #homesecondb знаходиться тут, бо я даю вибір magazchoose саме тут, тому цей кусок коду має бути тут
 
         "Піти додому":
-            scene room_heroday with dissolve
-            label homesecondb:   
-                play sound door
-                "Нарешті вдома"
-                menu home2:
-                    "Чим би зайнятися?"
-                    "Пограти в ігри":
-                        "Нарешті гра, треба ще викрутити персонажа. Ти мене вже зачекалася"
-                        menu games2:
-                            "IoL: Fortune's Treasure":
-                                jump gacha_options3
-                            "Snake":
-                                $ quick_menu = True
-                                jump play_snake2
+            jump homesecondb
 
-                    "Сісти за уроки":
-                        "Гаразд, час трохи за розум взятися"
-                        "Але так лінь, добре, треба хоч трохи повчитися"
-                        jump lessons2
-                        #Уроки вікторина2
-                        return
+label homesecondb:   
+    play sound door
+    "Нарешті вдома"
 
+    menu home2:
+        "Чим би зайнятися?"
+        "Пограти в ігри":
+            "Нарешті гра, треба ще викрутити персонажа. Ти мене вже зачекалася"
+            menu games2:
+                "IoL: Fortune's Treasure":
+                    jump gacha_options3
+                "Snake":
+                    $ quick_menu = True
+                    jump play_snake2
+
+        "Сісти за уроки":
+                    "Гаразд, час трохи за розум взятися"
+                    "Але так лінь, добре, треба хоч трохи повчитися"
+                    #Уроки вікторина2
+                    jump lessons2
 
     ############################################
     #                  ГАЧА                    #

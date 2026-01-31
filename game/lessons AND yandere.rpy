@@ -41,7 +41,7 @@ label lessons:
             "Неправильно"
         "1961":
             "Неправильно"
-            jump check_score
+    jump check_score
 
 label check_score:
     if score >= 2:
@@ -153,9 +153,10 @@ label lessons3:
             $ score += 1  # Збільшення балів при правильній відповіді
         "Таємниця":
             "Неправильно"
-            jump check_score3
 
-            label check_score3:
+    jump check_score3
+
+label check_score3:
     if score >= 7:
         scene room_heronight with dissolve
         "Ви вивчили весь матеріал та обігнали програму на рік вперед!"
@@ -206,29 +207,25 @@ label lessons3:
                     "Зробив вигляд, що нічого не відбувається"
                     jump yandere_transition
 
-            label yandere_transition:
-                scene black with fade
-                stop music fadeout 2.0
-                "…"
-                "Я не пам’ятаю, як вийшов зі школи"
-                "І не пам’ятаю, як довго йшов"
-
-                "Мої ноги самі несли мене вперед"
-                "Або мені просто так здалося"
-
-                stop music fadeout 1.0
-                scene bg out2night with fade
-                play music horror fadein 2.0
-
-                "На вулиці було темно"
-                "Занадто темно для цього часу"
-
-                "Я зупинився"
-                "І тільки тоді зрозумів, що опинився тут"
-                jump secret_yandere_end
-
         # Якщо умови не виконані — нічого не робимо
         else:
             pass
 
         jump endb
+
+label yandere_transition:
+    scene black with fade
+    stop music fadeout 2.0
+    "…"
+    "Я не пам’ятаю, як вийшов зі школи"
+    "І не пам’ятаю, як довго йшов"
+    "Мої ноги самі несли мене вперед"
+    "Або мені просто так здалося"
+    stop music fadeout 1.0
+    scene bg out2night with fade
+    play music horror fadein 2.0
+    "На вулиці було темно"
+    "Занадто темно для цього часу"
+    "Я зупинився"
+    "І тільки тоді зрозумів, що опинився тут"
+    jump secret_yandere_end

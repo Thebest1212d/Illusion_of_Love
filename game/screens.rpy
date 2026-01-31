@@ -312,6 +312,8 @@ screen navigation():
 
         textbutton _("Досягнення") action ShowMenu("bobcachievements")
 
+        textbutton _("Про гру") action ShowMenu("about")
+
         if _in_replay:
 
             textbutton _("Кінець повтору") action EndReplay(confirm=True)
@@ -1745,7 +1747,7 @@ screen main_menu():
         text config.name style "main_menu_title" xalign 0.5 yalign 0.1
 
     # Версія (правий нижній кут)
-    text "Версія 0.9.5" style "main_menu_info" xalign 0.98 yalign 0.98
+    text "Версія [config.version]" style "main_menu_info" xalign 0.999 yalign 0.98
 
     # Автор (лівий нижній кут)
     text "2025 Бритюк Богдан" style "main_menu_info" xalign 0.02 yalign 0.98  
@@ -1774,6 +1776,8 @@ screen main_menu():
             textbutton _("Завантажити") style "mm_button" action ShowMenu("load")
             textbutton _("Налаштування") style "mm_button" action ShowMenu("preferences")
             textbutton _("Досягнення") style "mm_button" action ShowMenu("bobcachievements")
+            textbutton _("Про гру") style "mm_button" action ShowMenu("about")
+            
 
             # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
             #     textbutton _("Довідка") style "mm_button" action ShowMenu("help")

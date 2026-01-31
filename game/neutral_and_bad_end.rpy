@@ -76,12 +76,12 @@ label play_snake:
     # Виклик екрану змійки
     call snake_game_start from _call_snake_game_start
     
-    $ score = game_instance.score  # Зберігаємо рахунок у змінну
+    $ snake_score = game_instance.score  # Зберігаємо рахунок у змінну
     $ is_dead = game_instance.is_dead  # Отримуємо стан смерті змійки
     if is_dead:
-        "Гра закінчена! Ти набрав [score] очок."
+        "Гра закінчена! Ти набрав [snake_score] очок."
             # Якщо гравець набрав більше ніж 20 очок
-        if game_instance.score >= 20:  # Використовуємо game_instance для доступу до рахунку
+        if snake_score >= 20:  # Використовуємо game_instance для доступу до рахунку
             # Гравець отримав досягнення "Геймер"
             if not achievement.has("gamer"):  # 
                 achieve gamer
@@ -99,8 +99,7 @@ label play_snake:
                 "Просиділи, щоправда до третьої години ночі."
                 "Щось мене вирубає..."
                 scene dark with fade  
-                jump secondayb 
-                return
+                jump secondayb
 
 
 label secondayb:
@@ -177,12 +176,12 @@ label play_snake2:
     # Виклик екрану змійки
     call snake_game_start from _call_snake_game_start_1
     
-    $ score = game_instance.score  # Зберігаємо рахунок у змінну
+    $ snake_score = game_instance.score  # Зберігаємо рахунок у змінну
     $ is_dead = game_instance.is_dead  # Отримуємо стан смерті змійки
     if is_dead:
-        "Гра закінчена! Ти набрав [score] очок."
+        "Гра закінчена! Ти набрав [snake_score] очок."
             # Якщо гравець набрав більше ніж 20 очок
-        if game_instance.score >= 20:  # Використовуємо game_instance для доступу до рахунку
+        if snake_score >= 20: 
             # Гравець отримав досягнення "Геймер"
             if not achievement.has("gamer"):  
                 achieve gamer
@@ -201,7 +200,6 @@ label play_snake2:
                 "Щось мене вирубає..."
                 scene dark with fade  
                 jump thirddayb 
-                return
 
 label thirddayb:
     scene room_heroday with dissolve
@@ -346,54 +344,60 @@ label fourthdayb:
     menu home3:
         "Чим би зайнятися?"
         "Пограти в ігри":
-            label gamer:
-                "Ви пішли грати в нову гру, яку нещодавно придбали"
-                label guess_number:
-                    # Генерація випадкового числа від 1 до 100
-                    $ target_number = random.randint(1, 100)
-                    $ attempts = 7  # Кількість спроб
-                    $ hint_given = False  # Відстеження, чи була підказка
-
-                    "Вітаю в грі 'Вгадай число'! Моя задача — загадати число між 1 і 100. Твоя задача — вгадати його за 7 спроб."
-                    "Я дам тобі підказки після кожної спроби. Ти готовий? Введи своє припущення."
-
-                    while attempts > 0:
-                        "Твоя спроба [attempts]:"
-                        $ guess_input = renpy.input("Введи своє припущення (від 1 до 100):")  # Введення числа
-                        $ guess_input = guess_input.strip()
-
-                        # Перевірка, чи введено число
-                        if guess_input.isdigit():
-                            $ guess = int(guess_input)  # Перетворення введеного тексту в число
-                            if guess == target_number:
-                                jump win_game  # Якщо число вгадано
-                            elif guess < target_number:
-                                "Моє число більше!"
-                            elif guess > target_number:
-                                "Моє число менше!"
-                            $ attempts -= 1  # Зменшення кількості спроб
-                        else:
-                            "Будь ласка, введи число від 1 до 100!"  # Повідомлення при неправильному введенні
-
-                    jump lose_game  # Якщо кількість спроб вичерпана, гравець програв
-
-                label win_game:
-                    "Чудово! Ти вгадав число! Це було [target_number]. Ти молодець!"
-                    jump check_score3
-                    return
-
-                label lose_game:
-                    "На жаль, ти не зміг вгадати число. Моє число було [target_number]."
-                    jump check_score3
-                    return
-
-
+            jump gamer
         "Сісти за уроки":
             "Гаразд, час працювати, я зможу вступити до вишу"
             jump lessons3
 
+label gamer:
+    "Ви пішли грати в нову гру, яку нещодавно придбали"
+    jump guess_number
+
+label guess_number:
+
+    python:
+        import random
+
+        target_number = random.randint(1, 100)
+        attempts = 7
+        guessed = False
+
+        while attempts > 0:
+            renpy.say(None, f"Твоя спроба {attempts}:")
+            guess_input = renpy.input(
+                "Введи своє припущення (від 1 до 100):"
+            ).strip()
+
+            if guess_input.isdigit():
+                guess = int(guess_input)
+
+                if guess == target_number:
+                    guessed = True
+                    break
+                elif guess < target_number:
+                    renpy.say(None, "Моє число більше!")
+                else:
+                    renpy.say(None, "Моє число менше!")
+
+                attempts -= 1
+            else:
+                renpy.say(None, "Будь ласка, введи число від 1 до 100!")
+                attempts -= 1
+
+    if guessed:
+        jump win_game
+    else:
+        jump lose_game
 
 
+
+label win_game:
+    "Чудово! Ти вгадав число! Це було [target_number]. Ти молодець!"
+    jump check_score3
+
+label lose_game:
+    "На жаль, ти не зміг вгадати число. Моє число було [target_number]."
+    jump check_score3
 
 
 #Нейтральна кінцівка
