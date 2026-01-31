@@ -147,21 +147,21 @@
 
 # Illusion of Love EN 💖
 
-> *"A story about love, choices, and the delicate line between reality and illusion."*  
+> *"A story about love, choice, and the fragile line between reality and illusion."*
 
 ## 📖 Description
-**Illusion of Love** is a visual novel created with **Ren'Py**, telling an emotional and touching story about love, friendship, and self-discovery.  
-Players influence the events through choices that shape the plot and the story’s ending.  
+**Illusion of Love** is a visual novel created with **Ren'Py**, telling an emotional and touching story about love, friendship, and the search for oneself.  
+The player influences the events through choices that shape the plot and determine the story’s ending.
 
 ## ✨ Features
-- Experience stories filled with joy, sadness, and warmth, where player choices create unique endings  
-- Meet lively and unforgettable characters whose emotions you can feel and understand  
-- Feel the atmosphere through a soundtrack that emphasizes every moment — from gentle thrills to deep emotional experiences  
-- Natural and sincere dialogues help feel the warmth and closeness of the characters  
-- Discover romance and tender moments that stay in your heart even after finishing the game  
+- Go through stories filled with joy, sadness, and warmth, where the player’s choices create unique endings  
+- Meet vivid and unforgettable characters whose emotions can be felt and understood  
+- Feel the atmosphere through a soundtrack that emphasizes every moment — from gentle trembling to deep emotional experiences  
+- Natural and sincere dialogues help convey the warmth and closeness of the characters  
+- Discover romance and tender moments that remain in your heart even after the game ends  
 
 ## 🛠 Installation
-1. Download the latest release from [Releases](https://github.com/Thebest1212d/Illusion_of_Love/releases)  
+1. Download the latest release from [Releases](https://github.com/Thebest1212d/Illusion_of_Love/releases)
 2. Extract the archive to a convenient location  
 3. Run the file:  
    - **Windows:** `IOL.exe`  
@@ -169,51 +169,115 @@ Players influence the events through choices that shape the plot and the story�
    - **MacOS:** `IOL.app`  
 
 ## 🎮 Controls
-- **LMB** / **Enter** — next line  
-- **RMB** — menu  
-- **Esc** — pause/settings  
-- **Ctrl** — skip  
+The game uses the standard hotkeys of the **Ren’Py** engine.  
+You can use the mouse, the keyboard, or a combination of both.  
+The most important commands are listed in the table below:
+
+| Key / Action              | Description                                 |
+|---------------------------|---------------------------------------------|
+| **Left Mouse Button**     | Continue text / select a menu option        |
+| **Right Mouse Button**    | Open menu (save, settings)                  |
+| **Enter / Space**         | Continue text                               |
+| **Ctrl**                  | Fast-forward text                           |
+| **Tab**                   | Enable / Disable auto-forward               |
+| **H**                     | Hide interface                              |
+| **S**                     | Take a screenshot                           |
+| **F / F11**               | Fullscreen mode / windowed mode             |
+| **Esc**                   | Open menu                                   |
+| **Delete**                | Delete selected save                        |
 
 ## 📚 Story
-> You stand on the threshold of a new life, where every choice opens the way to unforgettable encounters and heartwarming moments. First loves, sincere friendships, tender gestures, and unexpected challenges intertwine in your unique story. Your decisions determine whether you will find true love, protect those you care about, and feel the depth of emotions that remain in your heart forever.  
+> You stand on the threshold of a new life, where every choice opens the path to unforgettable encounters and heartwarming moments. First love, sincere friendship, tenderness, and unexpected trials intertwine into your unique story. Your decisions determine whether you will find true love, protect those you care about, and feel the full depth of emotions that remain in your heart forever.
 
-## 🌟 Roadmap
+## 🌟 Illusion of Love — Development Roadmap
 
-### 🎭 Story and Scenes (0/6)
-- [ ] Expand bonding between the protagonist and Solomia after confession and the start of the relationship  
-- [ ] A more dramatic and contrasting bad ending  
-- [ ] Strengthen emotional connection between characters  
-- [ ] Additional dialogues for stronger character attachment  
-- [ ] New scenes between school and wedding (university, first adult steps)  
-- [ ] Expansion of the good ending (traditions, fears, interaction, daily-life scenes)  
+> This roadmap describes the further development of the visual novel **Illusion of Love**.  
+> The main focus is **emotional depth**, **realistic relationship development**, and **atmospheric narrative integrity**.
 
-### 💍 Wedding (6/7)
-- [ ] More detailed wedding scene  
-  - [ ] Flashback: how they decided to get married  
-  - [X] Short inner monologues of the characters  
-  - [X] Vows (player chooses the words)  
-  - [X] Ring exchange (*ring sound*)  
-  - [X] Guests’ reactions: applause, hugs  
-  - [X] Post-wedding scene  
+## 🎭 Story and Emotional Depth (core of the game)
 
-### 🎮 Gameplay (0/2)
+- [ ] Expanded bonding between the protagonist and Solomia after confession and the beginning of the relationship  
+- [ ] Overall strengthening of the emotional connection between the characters  
+  - inner thoughts  
+  - silent pauses  
+  - physical closeness without sexualization  
+- [ ] Expansion and refinement of dialogues to increase attachment to the characters  
+- [ ] More descriptions of atmosphere, movements, emotions, and subtle reactions  
+
+## 🧨 Endings and Contrast
+
+- [ ] **Bad ending**  
+  - increased dramatic intensity  
+  - clear contrast with the good ending  
+  - a sense of loss and irreversibility  
+- [ ] **Good ending**  
+  - more everyday-life scenes  
+  - traditions  
+  - fears  
+  - scenes that enhance character interaction  
+- [ ] **Secret ending**  
+  - alternative emotional tone  
+  - experimental narrative branch  
+
+## 🎓 Scenes Between School and Wedding
+
+- [ ] University scenes  
+- [ ] First adult steps and responsibilities  
+- [ ] Everyday, “quiet” scenes of life together  
+- [ ] Moments that show the characters’ internal changes over time  
+
+## 💍 Wedding and Preparation
+
+- [X] Expanded wedding scene  
+- [X] Vows with player word choice  
+- [X] Ring exchange (sound accents)  
+- [X] Guests’ reactions and atmosphere  
+- [X] Post-wedding scene  
+- [ ] Wedding preparation  
+  - short flashback  
+  - the moment of deciding to get married  
+
+## 🎮 Gameplay
+
 - [ ] New quiz questions  
-- [ ] Additional story branches for more non-linearity  
+- [X] Additional story branches for non-linearity  
 
-### 🖌 Atmosphere and Style (0/2)
-- [ ] More descriptions of atmosphere, movements, thoughts, and character emotions  
+## 🎨 Atmosphere and Visual Style
+
 - [ ] Additional CG scenes  
+- [ ] Deeper visual atmosphere enhancement  
 
-### 🛠 Technical Tasks (1/4)
-- [ ] Code review and structure optimization  
-- [X] Intro video optimization  
+## 🖥 Main Menu and UI
+
+- [ ] New main menu background  
+- [X] Repositioning of the game title and composition adjustments  
+- [X] Solomia as part of the main menu  
+- [ ] Updated breathing animation for Solomia  
+- [X] Animated background elements  
+  - petals  
+  - light  
+- [ ] Button sound effects  
+- [ ] Menu micro-reactions (breathing, laughter, soft sounds)  
+
+## 🛠 Technical Tasks
+
+- [ ] Code review and optimization of the `.rpy` structure  
+- [ ] Intro video optimization  
 - [ ] Full OST  
-- [ ] Localization to other languages  
+- [ ] Localization into other languages  
+
+## 🚀 Release
+
+- [ ] Preparation and release of **version 1.0**
+
+### 🤍 Author’s Note
+> *Illusion of Love* is a story about the gradual, sincere development of feelings,  
+> where emotions matter more than the number of events.
 
 ## 🤝 Contributors
 - **Author and Writer:** *Bohdan Brytiuk*  
-- **Programming:** *Bohdan Brytiuk / Profile*  
-- **Testing:** *Sichkar Maksym / Profile*  
+- **Programming:** *Bohdan Brytiuk / Profile*
+- **Testing:** *Sichkar Maksym / Profile*
 - **Art and Illustrations:** *Bohdan Brytiuk / Fisunova Veronika*  
 - **Music:** *Kevin MacLeod (incompetech.com)*  
 
